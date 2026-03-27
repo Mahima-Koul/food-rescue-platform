@@ -12,7 +12,7 @@ export default function Footer() {
         {/* Center */}
         <div className="flex gap-6 text-sm text-gray-500">
           <span className="hover:text-gray-900 cursor-pointer">See NGOs</span>
-          <span href="/our-vision" className="hover:text-gray-900 cursor-pointer">Our Vision</span>
+          <a href="/our-vision" className="hover:text-gray-900 cursor-pointer">Our Vision</a>
           <a href="/contact-us" className="hover:text-gray-900 cursor-pointer">Contact Us</a>
         </div>
 

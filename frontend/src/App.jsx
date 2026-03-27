@@ -6,7 +6,8 @@ import RestaurantDashboard from "./pages/RestaurantDashboard";
 import NGODashboard from "./pages/NGODashboard";
 import Home from "./pages/Home";
 import AddDonation from "./pages/AddDonation";
-import Navbar from "./components/Navbar";
+import ContactUs from "./pages/ContactUs";
+import OurVision from "./pages/OurVision";
 
 function AppContent() {
   const location = useLocation();
@@ -23,6 +24,8 @@ function AppContent() {
         <Route path="/restaurant-dashboard" element={<RestaurantDashboard />} />
         <Route path="/ngo-dashboard" element={<NGODashboard />} />
         <Route path="/add-donation" element={<AddDonation />} />
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/our-vision" element={<OurVision />} />
       </Routes>
     </>
   );
