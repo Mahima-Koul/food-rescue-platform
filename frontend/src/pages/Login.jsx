@@ -23,9 +23,10 @@ function Login() {
   };
 
   return (
-    <div style={styles.container}>
-      <div style={styles.card}>
-        <h2 style={{ marginBottom: "20px", color: "#4CAF50" }}>Login</h2>
+    <div className="h-screen flex justify-center items-center bg-gray-100">
+      <div className="bg-white p-8 rounded-xl shadow-md w-80 text-center">
+        
+        <h2 className="mb-5 text-green-600 text-2xl font-bold">Login</h2>
 
         <form onSubmit={handleSubmit} noValidate>
           <input
@@ -33,7 +34,7 @@ function Login() {
             placeholder="Enter email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            style={styles.input}
+            className="w-full p-2 mb-4 border border-gray-300 rounded-lg outline-none"
           />
 
           <input
@@ -41,12 +42,17 @@ function Login() {
             placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={styles.input}
+            className="w-full p-2 mb-4 border border-gray-300 rounded-lg outline-none"
           />
 
-          {error && <p style={styles.error}>{error}</p>}
+          {error && (
+            <p className="text-red-500 mb-3">{error}</p>
+          )}
 
-          <button type="submit" style={styles.button}>
+          <button
+            type="submit"
+            className="w-full p-2 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600"
+          >
             Login
           </button>
         </form>
@@ -54,45 +60,5 @@ function Login() {
     </div>
   );
 }
-
-const styles = {
-  container: {
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    background: "#f5f5f5",
-  },
-  card: {
-    padding: "30px",
-    borderRadius: "12px",
-    background: "white",
-    boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
-    width: "300px",
-    textAlign: "center",
-  },
-  input: {
-    width: "100%",
-    padding: "10px",
-    marginBottom: "15px",
-    borderRadius: "8px",
-    border: "1px solid #ccc",
-    outline: "none",
-  },
-  button: {
-    width: "100%",
-    padding: "10px",
-    borderRadius: "8px",
-    border: "none",
-    background: "#4CAF50",
-    color: "white",
-    fontWeight: "bold",
-    cursor: "pointer",
-  },
-  error: {
-    color: "red",
-    marginBottom: "10px",
-  },
-};
 
 export default Login;

@@ -28,7 +28,7 @@ function Signup() {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-6 rounded shadow w-full max-w-md">
 
-        <h2 className="text-2xl font-bold mb-4 text-center">
+        <h2 className="text-2xl font-bold mb-4 text-center text-green-500">
           Signup
         </h2>
 
