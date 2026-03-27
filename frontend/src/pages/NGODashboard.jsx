@@ -9,6 +9,7 @@ const donations = [
 export default function NGODashboard() {
   const [data, setData] = useState(donations);
 
+
   const handleAccept = (id) => {
     setData(
       data.map((d) =>
@@ -24,9 +25,16 @@ export default function NGODashboard() {
       <nav className="bg-white border-b shadow-sm px-6 py-3 flex justify-between items-center">
         <h1 className="font-bold text-lg">🤝 NGO Dashboard</h1>
         <div className="text-sm text-gray-500">Welcome NGO</div>
+   
       </nav>
 
       <main className="max-w-7xl mx-auto p-6">
+        <button
+  onClick={() => window.location.href = "/ngo-map"}
+  className="bg-black text-white px-3 py-1 rounded"
+>
+  View Map
+</button>
 
         {/* Header */}
         <div className="mb-6">
