@@ -101,6 +101,14 @@ function Signup() {
             Signup
           </button>
 
+          <p className="mt-4 text-sm">
+            Already have an account?{" "}
+            <Link 
+              to="/" 
+              className="text-green-600 font-semibold hover:underline">
+              Log in
+            </Link>
+          </p>
         </form>
 
       </div>
