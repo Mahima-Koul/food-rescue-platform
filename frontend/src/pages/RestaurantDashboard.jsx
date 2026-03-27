@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { db, auth } from "../firebase";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const listings = [
   { id: 1, name: "Paneer Butter Masala", qty: "8 kg", expires: "Today, 9:00 PM", category: "Cooked Meal", status: "active", claimed: false, ngo: null },
@@ -64,10 +66,26 @@ export default function RestaurantDashboard() {
       l.name.toLowerCase().includes(searchQ.toLowerCase())
   );
 
-  const handleAdd = () => {
-    if (!form.name || !form.qty || !form.expires) return;
+  const handleAdd = async () => {
+  if (!form.name || !form.qty || !form.expires) return;
+
+  try {
+    // 🔥 SAVE TO FIRESTORE
+    const docRef = await addDoc(collection(db, "donations"), {
+      foodName: form.name,
+      quantity: Number(form.qty),
+      unit: form.unit,
+      category: form.category,
+      expiryTime: form.expires,
+      notes: form.notes,
+      status: "available",
+      restaurantId: auth.currentUser?.uid,
+      createdAt: serverTimestamp(),
+    });
+
+    // 🔥 ALSO UPDATE UI (so user sees instantly)
     const newItem = {
-      id: Date.now(),
+      id: docRef.id,
       name: form.name,
       qty: `${form.qty} ${form.unit}`,
       expires: form.expires,
@@ -76,11 +94,26 @@ export default function RestaurantDashboard() {
       claimed: false,
       ngo: null,
     };
-    setListData([newItem, ...listData]);
-    setShowModal(false);
-    setForm({ name: "", qty: "", unit: "kg", category: "Cooked Meal", expires: "", notes: "" });
-  };
 
+    setListData([newItem, ...listData]);
+
+    setShowModal(false);
+    setForm({
+      name: "",
+      qty: "",
+      unit: "kg",
+      category: "Cooked Meal",
+      expires: "",
+      notes: "",
+    });
+
+    alert("Listing added 🚀");
+
+  } catch (err) {
+    console.log(err);
+    alert("Error adding listing ❌");
+  }
+};
   const handleDelete = (id) => setListData(listData.filter((l) => l.id !== id));
 
   return (
