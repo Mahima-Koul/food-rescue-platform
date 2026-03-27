@@ -1,15 +1,23 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+
 
 function Signup() {
   const [role, setRole] = useState("restaurant");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
     // Password check
     if (password !== confirmPassword) {
       alert("Passwords do not match");
@@ -22,8 +30,58 @@ function Signup() {
       return;
     }
 
-    alert("Signup successful");
-  };
+   console.log("Signup started");
+
+const userCredential = await createUserWithEmailAndPassword(
+  auth,
+  email,
+  password
+);
+const user = userCredential.user;
+
+console.log("Firebase success");
+
+    // 🔥 2. Get token
+    const token = await user.getIdToken();
+    const res = await fetch("http://localhost:5000/api/users/create", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  },
+  body: JSON.stringify({
+    role: role.toUpperCase(),
+    name,
+    phone,
+    address,
+  }),
+});
+
+const data = await res.json();
+console.log("Backend response:", data);
+
+    // 🔥 3. Send to backend
+    await fetch("http://localhost:5000/api/users/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        role: role.toUpperCase(), // 👈 IMPORTANT
+        name,
+        phone,
+        address,
+      }),
+    });
+
+    alert("Signup successful ");
+
+  } catch (error) {
+    console.log(error);
+    alert(error.message);
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -54,7 +112,13 @@ function Signup() {
         <form onSubmit={handleSubmit} className="space-y-3">
 
           {/* Common Fields */}
-          <input className="w-full border p-2 rounded" placeholder="Email" />
+          <input
+  className="w-full border p-2 rounded"
+  placeholder="Email"
+  type="email"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+/>
 
           <input
             className="w-full border p-2 rounded"
@@ -72,7 +136,12 @@ function Signup() {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
 
-          <input className="w-full border p-2 rounded" placeholder="Address / City" />
+          <input
+  className="w-full border p-2 rounded"
+  placeholder="Address / City"
+  value={address}
+  onChange={(e) => setAddress(e.target.value)}
+/>
 
           <input
             className="w-full border p-2 rounded"
@@ -86,14 +155,24 @@ function Signup() {
           {/* Role-based Fields */}
           {role === "restaurant" && (
             <>
-              <input className="w-full border p-2 rounded" placeholder="Restaurant Name" />
+             <input
+  className="w-full border p-2 rounded"
+  placeholder="Restaurant Name"
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+/>
               <input className="w-full border p-2 rounded" placeholder="Owner Name (optional)" />
             </>
           )}
 
           {role === "ngo" && (
             <>
-              <input className="w-full border p-2 rounded" placeholder="NGO Name" />
+             <input
+  className="w-full border p-2 rounded"
+  placeholder="NGO Name"
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+/>
               <input className="w-full border p-2 rounded" placeholder="Capacity (optional)" />
             </>
           )}

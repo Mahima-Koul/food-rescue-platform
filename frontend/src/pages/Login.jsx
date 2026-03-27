@@ -1,27 +1,40 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleLogin = async (e) => {
+  e.preventDefault();
 
-    if (!email || !password) {
-      setError("All fields are required");
-      return;
-    }
-
-    if (!email.includes("@")) {
-      setError("Enter a valid email");
-      return;
-    }
-
+  try {
     setError("");
-    alert("Login successful");
-  };
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+    const user = userCredential.user;
+
+    const token = await user.getIdToken();
+
+    console.log("Login success", token);
+
+    alert("Login successful 🚀");
+
+    // 👉 redirect (important)
+    window.location.href = "/restaurant-dashboard";
+
+  }catch (error) {
+  console.log(error);
+  setError(error.message);
+}
+};
 
   return (
     <div className="h-screen flex justify-center items-center bg-gray-100">
@@ -29,7 +42,7 @@ function Login() {
         
         <h2 className="mb-5 text-green-600 text-2xl font-bold">Login</h2>
 
-        <form onSubmit={handleSubmit} noValidate>
+        <form onSubmit={handleLogin} noValidate>
           <input
             type="email"
             placeholder="Enter email"
