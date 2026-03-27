@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -68,6 +69,15 @@ function Login() {
           >
             Login
           </button>
+
+          <p className="mt-4 text-sm">
+            New user?{" "}
+            <Link 
+                to="/signup" 
+                className="text-green-600 font-semibold hover:underline">
+                Sign up here
+            </Link>
+          </p>  
         </form>
       </div>
     </div>
