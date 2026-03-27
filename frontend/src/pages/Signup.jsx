@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Signup() {
   const [role, setRole] = useState("restaurant");
@@ -104,7 +105,7 @@ function Signup() {
           <p className="mt-4 text-sm">
             Already have an account?{" "}
             <Link 
-              to="/" 
+              to="/login" 
               className="text-green-600 font-semibold hover:underline">
               Log in
             </Link>
