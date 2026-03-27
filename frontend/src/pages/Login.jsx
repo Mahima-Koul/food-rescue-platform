@@ -28,7 +28,7 @@ function Login() {
     alert("Login successful 🚀");
 
     // 👉 redirect (important)
-    window.location.href = "/dashboard";
+    window.location.href = "/restaurant-dashboard";
 
   }catch (error) {
   console.log(error);
