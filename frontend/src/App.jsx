@@ -1,20 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import Signup from "./pages/Signup.jsx";
+import Login from "./pages/Login.jsx";
 
 function App() {
-  const [showSignup, setShowSignup] = useState(false);
-
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Signup />} />
-
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
