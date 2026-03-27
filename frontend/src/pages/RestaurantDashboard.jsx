@@ -5,8 +5,8 @@ import ListingsPanel from "../components/restaurant/ListingPanel";
 import PickupSchedule from "../components/restaurant/PickupSchedule";
 import RecentActivity from "../components/restaurant/RecentActivity";
 import ImpactCard from "../components/restaurant/ImpactCard";
+import AddListingModal from "../components/restaurant/AddListingModel";
 import NGOGrid from "../components/restaurant/NGOGrid";
-import AddListingModal
 
 export default function RestaurantDashboard() {
   const [activeTab, setActiveTab] = useState("listings");

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {db, auth } from "../firebase"
+import {db, auth } from "../../firebase"
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { categories } from "../../../constants";
 
