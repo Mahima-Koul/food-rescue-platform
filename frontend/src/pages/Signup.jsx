@@ -181,7 +181,7 @@ console.log("Backend response:", data);
             Signup
           </button>
 
-          <p className="mt-4 text-sm">
+          <p className="mt-0 text-sm">
             Already have an account?{" "}
             <Link 
               to="/login" 
