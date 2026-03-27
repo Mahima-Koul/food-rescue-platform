@@ -15,7 +15,6 @@ function AppContent() {
 
   return (
     <>
-      {!hideNavbar && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Home />} />

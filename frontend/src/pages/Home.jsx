@@ -1,28 +1,12 @@
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
 
-      {/* Navbar */}
-      <nav className="bg-white shadow-md px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-green-600">🍱 Food Rescue</h1>
-
-        <div className="space-x-4">
-          <Link
-            to="/login"
-            className="px-4 py-2 border border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition"
-          >
-            Login
-          </Link>
-          <Link
-            to="/signup"
-            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition shadow"
-          >
-            Signup
-          </Link>
-        </div>
-      </nav>
+      <Navbar/>
 
       {/* Hero Section */}
       <div className="flex flex-col items-center justify-center text-center py-28 px-6 bg-gradient-to-b from-green-50 to-white">
@@ -87,11 +71,7 @@ function Home() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="mt-auto bg-green-600 text-white text-center p-5">
-        <p className="font-semibold">© 2026 Food Rescue Platform</p>
-        <p className="text-sm opacity-80">Built for a better future 🌱</p>
-      </footer>
+      <Footer/>
 
     </div>
   );
