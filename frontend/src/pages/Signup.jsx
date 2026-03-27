@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 
+
 function Signup() {
   const [role, setRole] = useState("restaurant");
   const [password, setPassword] = useState("");
@@ -183,7 +184,7 @@ console.log("Backend response:", data);
           <p className="mt-4 text-sm">
             Already have an account?{" "}
             <Link 
-              to="/" 
+              to="/login" 
               className="text-green-600 font-semibold hover:underline">
               Log in
             </Link>
