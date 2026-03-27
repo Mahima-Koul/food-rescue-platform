@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Home() {
   return (
     <div className="min-h-screen bg-gray-100">
-
+ 
       {/* Navbar */}
       <nav className="bg-green-600 text-white p-4 flex justify-between">
         <h1 className="text-xl font-bold">🍱 Food Rescue</h1>
