@@ -19,17 +19,29 @@ export default function AddListingModal({ onClose, onAdd }) {
     if (!form.name || !form.qty || !form.expires) return;
 
     try {
-      const docRef = await addDoc(collection(db, "donations"), {
-        foodName: form.name,
-        quantity: Number(form.qty),
-        unit: form.unit,
-        category: form.category,
-        expiryTime: form.expires,
-        notes: form.notes,
-        status: "available",
-        restaurantId: auth.currentUser?.uid,
-        createdAt: serverTimestamp(),
-      });
+      const position = await new Promise((resolve, reject) =>
+  navigator.geolocation.getCurrentPosition(resolve, reject)
+);
+
+const lat = position.coords.latitude;
+const lng = position.coords.longitude; //location 
+     const docRef = await addDoc(collection(db, "donations"), {
+  foodName: form.name,
+  quantity: Number(form.qty),
+  unit: form.unit,
+  category: form.category,
+  expiryTime: form.expires,
+  notes: form.notes,
+  status: "available",
+  restaurantId: auth.currentUser?.uid,
+
+  location: {
+    lat,
+    lng
+  },
+
+  createdAt: serverTimestamp(),
+});
 
       onAdd({
         id: docRef.id,
