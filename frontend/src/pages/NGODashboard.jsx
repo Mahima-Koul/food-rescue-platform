@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 const donations = [
   { id: 1, name: "Paneer Butter Masala", qty: "8 kg", expires: "9:00 PM", restaurant: "Spice Paradise", status: "available" },
   { id: 2, name: "Dal Tadka", qty: "10 kg", expires: "10:00 PM", restaurant: "Food Hub", status: "available" },
@@ -25,14 +25,18 @@ export default function NGODashboard() {
       <nav className="bg-[#ccbeb1] border-b border-gray-200 sticky top-0 z-30 shadow-sm">
   <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
 
-    {/* Left */}
-    <div className="flex items-center gap-3">
+    {/* Left (Clickable Logo) */}
+    <Link to="/" className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition">
       <span className="text-xl">🤝</span>
       <div>
-        <p className="font-bold text-gray-900 text-base leading-none">ResQMeal</p>
-        <p className="text-[11px] text-gray-700 uppercase tracking-wide">NGO Portal</p>
+        <p className="font-bold text-gray-900 text-base leading-none">
+          ResQMeal
+        </p>
+        <p className="text-[11px] text-gray-700 uppercase tracking-wide">
+          NGO Portal
+        </p>
       </div>
-    </div>
+    </Link>
 
     {/* Right */}
     <div className="text-sm text-gray-600 font-medium">
@@ -40,7 +44,7 @@ export default function NGODashboard() {
     </div>
 
   </div>
-  </nav>
+</nav>
     <main className="max-w-7xl mx-auto px-6 py-8">
   {/* LEFT: Header */}
   <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">

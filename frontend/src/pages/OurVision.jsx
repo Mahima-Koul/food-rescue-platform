@@ -12,7 +12,7 @@ export default function OurVision() {
         <section className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Our Vision</h1>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            At <span className="font-semibold text-green-600">ResQmeal</span>, we aim to reduce food wastage
+            At <span className="font-semibold text-[#5C4A3D]">ResQmeal</span>, we aim to reduce food wastage
             by connecting restaurants with NGOs in need. Our mission is to ensure that
             excess food reaches those who need it most — efficiently, safely, and sustainably.
           </p>
@@ -37,7 +37,7 @@ export default function OurVision() {
         </section>
 
         {/* How It Works Section */}
-        <section className="bg-green-50 p-10 rounded-xl shadow-inner mb-16">
+        <section className="bg-[#ccbeb1] p-10 rounded-xl shadow-inner mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">How It Works</h2>
           <ul className="space-y-6 max-w-3xl mx-auto text-gray-700">
             <li>1️⃣ Restaurants post listings of surplus food quickly and easily.</li>
@@ -51,7 +51,9 @@ export default function OurVision() {
         <section className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Join Us in Reducing Food Waste</h2>
           <p className="text-gray-600 mb-6">Whether you're a restaurant or an NGO, your participation makes a difference.</p>
-          <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold transition">
+          <button 
+          onClick={() => window.location.href = "/"}
+          className="bg-[#635C4A] hover:bg-[#5C4A3D] text-white px-6 py-3 rounded-xl font-semibold transition">
             Get Started
           </button>
         </section>
