@@ -9,6 +9,8 @@ import AddDonation from "./pages/AddDonation";
 import ContactUs from "./pages/ContactUs";
 import OurVision from "./pages/OurVision";
 import NgoMap from "./pages/NgoMap";
+import NGOProfile from "./pages/NGOProfile";
+import RestaurantProfile from "./pages/RestaurantProfile";
 
 
 function AppContent() {
@@ -29,6 +31,9 @@ function AppContent() {
         <Route path="/add-donation" element={<AddDonation />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/our-vision" element={<OurVision />} />
+        <Route path="/ngo-profile" element={<NGOProfile />} />
+        <Route path="/restaurant-profile" element={<RestaurantProfile />} />
+        
       </Routes>
     </>
   );
