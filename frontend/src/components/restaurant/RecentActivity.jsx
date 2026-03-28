@@ -2,7 +2,7 @@ import { recentActivity, activityIcon } from "../../../constants";
 
 export default function RecentActivity() {
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+    <div className="bg-[#EDE7E1] rounded-2xl border border-gray-100 shadow-sm p-5">
       <h3 className="font-bold text-gray-800 text-sm mb-4">🕐 Recent Activity</h3>
       <div className="space-y-4">
         {recentActivity.map((a, i) => (

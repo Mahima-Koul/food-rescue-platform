@@ -11,7 +11,7 @@ export default function ListingsPanel({ listings, onDelete }) {
   );
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+    <div className="bg-[#F5F3F0] rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
       {/* Header */}
       <div className="p-5 border-b border-gray-100">
         <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
@@ -21,7 +21,7 @@ export default function ListingsPanel({ listings, onDelete }) {
             placeholder="Search listings..."
             value={searchQ}
             onChange={(e) => setSearchQ(e.target.value)}
-            className="border border-gray-200 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 w-full sm:w-48"
+            className="border border-gray-200 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#664930] w-full sm:w-48"
           />
         </div>
         <div className="flex gap-2 mt-3 flex-wrap">
@@ -31,8 +31,8 @@ export default function ListingsPanel({ listings, onDelete }) {
               onClick={() => setFilterCat(c)}
               className={`px-3 py-1 rounded-full text-xs font-medium border transition-all ${
                 filterCat === c
-                  ? "bg-emerald-600 text-white border-emerald-600"
-                  : "bg-gray-50 text-gray-500 border-gray-200 hover:border-emerald-300"
+                  ? "bg-[#664930] text-white border-[#664930]"
+                  : "bg-gray-50 text-gray-500 border-gray-200 hover:border-[#664930]"
               }`}
             >
               {c}
@@ -54,7 +54,7 @@ export default function ListingsPanel({ listings, onDelete }) {
             key={item.id}
             className="px-5 py-4 flex items-center gap-4 hover:bg-gray-50 transition-colors group"
           >
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-lg flex-shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-[#EFE6DC] flex items-center justify-center text-lg flex-shrink-0">
               {foodIcon(item.category)}
             </div>
             <div className="flex-1 min-w-0">

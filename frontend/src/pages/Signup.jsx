@@ -87,7 +87,7 @@ console.log("Backend response:", data);
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-6 rounded shadow w-full max-w-md">
 
-        <h2 className="text-2xl font-bold mb-4 text-center text-green-500">
+        <h2 className="text-2xl font-bold mb-4 text-center text-[#664930]">
           Signup
         </h2>
 
@@ -96,14 +96,14 @@ console.log("Backend response:", data);
           <button
             type="button"
             onClick={() => setRole("restaurant")}
-            className={`flex-1 p-2 ${role === "restaurant" ? "bg-green-600 text-white" : "bg-gray-200"}`}
+            className={`flex-1 p-2 ${role === "restaurant" ? "bg-[#664930] text-white" : "bg-gray-200"}`}
           >
             Restaurant
           </button>
           <button
             type="button"
             onClick={() => setRole("ngo")}
-            className={`flex-1 p-2 ${role === "ngo" ? "bg-green-600 text-white" : "bg-gray-200"}`}
+            className={`flex-1 p-2 ${role === "ngo" ? "bg-[#664930] text-white" : "bg-gray-200"}`}
           >
             NGO
           </button>
@@ -177,7 +177,7 @@ console.log("Backend response:", data);
             </>
           )}
 
-          <button className="w-full bg-green-600 text-white p-2 rounded">
+          <button className="w-full bg-[#664930] text-white p-2 rounded">
             Signup
           </button>
 
@@ -185,7 +185,7 @@ console.log("Backend response:", data);
             Already have an account?{" "}
             <Link 
               to="/login" 
-              className="text-green-600 font-semibold hover:underline">
+              className="text-[#664930] font-semibold hover:underline">
               Log in
             </Link>
           </p>

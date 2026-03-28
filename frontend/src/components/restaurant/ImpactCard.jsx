@@ -1,6 +1,6 @@
 export default function ImpactCard() {
   return (
-    <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-5 text-white">
+    <div className="bg-gradient-to-br from-[#8B735C] to-[#5C4A3D] rounded-2xl p-5 text-white">
       <p className="text-xs font-semibold opacity-70 uppercase tracking-wide mb-1">Your Impact</p>
       <p className="text-3xl font-bold">1,248</p>
       <p className="text-sm opacity-80 mt-1">meals provided to people in need</p>

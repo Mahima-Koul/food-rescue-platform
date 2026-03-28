@@ -40,7 +40,7 @@ function Login() {
     <div className="h-screen flex justify-center items-center bg-gray-100">
       <div className="bg-white p-8 rounded-xl shadow-md w-80 text-center">
         
-        <h2 className="mb-5 text-green-600 text-2xl font-bold">Login</h2>
+        <h2 className="mb-5 text-[#664930] text-2xl font-bold">Login</h2>
 
         <form onSubmit={handleLogin} noValidate>
           <input
@@ -65,7 +65,7 @@ function Login() {
 
           <button
             type="submit"
-            className="w-full p-2 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600"
+            className="w-full p-2 bg-[#664930] text-white rounded-lg font-semibold hover:bg-[#4a3520]"
           >
             Login
           </button>
@@ -74,7 +74,7 @@ function Login() {
             New user?{" "}
             <Link 
                 to="/signup" 
-                className="text-green-600 font-semibold hover:underline">
+                className="text-[#664930] font-semibold hover:underline">
                 Sign up here
             </Link>
           </p>  
