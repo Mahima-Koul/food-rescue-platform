@@ -5,7 +5,7 @@ export default function NGOGrid() {
       {ngoList.map((n) => (
         <div
           key={n.name}
-          className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 flex gap-4 items-start hover:shadow-md transition-shadow"
+          className="bg-[#EDE7E1] rounded-2xl border border-gray-100 shadow-sm p-5 flex gap-4 items-start hover:shadow-md transition-shadow"
         >
           <div className="w-12 h-12 rounded-xl bg-sky-50 flex items-center justify-center text-2xl">
             🤝

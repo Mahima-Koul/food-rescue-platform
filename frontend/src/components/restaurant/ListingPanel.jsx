@@ -11,7 +11,7 @@ export default function ListingsPanel({ listings, onDelete }) {
   );
 
   return (
-    <div className="bg-[#F5F3F0] rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+    <div className="bg-[#EDE7E1] rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
       {/* Header */}
       <div className="p-5 border-b border-gray-100">
         <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">

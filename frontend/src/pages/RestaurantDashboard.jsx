@@ -94,7 +94,7 @@ export default function RestaurantDashboard() {
 
         {/* Analytics Tab */}
         {activeTab === "analytics" && (
-          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-12 text-center">
+          <div className="bg-[#EDE7E1] rounded-2xl border border-gray-100 shadow-sm p-12 text-center">
             <p className="text-5xl mb-4">📊</p>
             <p className="font-bold text-gray-700 text-lg">Analytics coming soon</p>
             <p className="text-sm text-gray-400 mt-2">Track trends, peak donation times, and NGO claim rates.</p>

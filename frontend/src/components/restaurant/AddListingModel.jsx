@@ -176,7 +176,7 @@ const lng = position.coords.longitude; //location
           <button
             onClick={handleAdd}
             disabled={!form.name || !form.qty || !form.expires}
-            className="flex-1 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-40 disabled:cursor-not-allowed text-white py-2.5 rounded-xl text-sm font-semibold transition shadow-md shadow-emerald-200"
+            className="flex-1 bg-[#664930] hover:bg-[#5a3d24] disabled:opacity-40 disabled:cursor-not-allowed text-white py-2.5 rounded-xl text-sm font-semibold transition shadow-md shadow-[#664930]"
           >
             Publish Listing
           </button>

@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 export default function ContactUs() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#EDE7E1]">
       {/* Navbar */}
       <Navbar />
 
@@ -41,7 +41,7 @@ export default function ContactUs() {
           </div>
           <button
             type="submit"
-            className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-xl font-semibold transition"
+            className="bg-[#664930] hover:bg-[#5a3d24] text-white px-6 py-2 rounded-xl font-semibold transition hover:scale-105 transition duration-200 shadow cursor-pointer"
           >
             Send Message
           </button>

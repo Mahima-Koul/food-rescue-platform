@@ -2,7 +2,7 @@
 import Navbar from "../components/Navbar";
 export default function OurVision() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-[#EDE7E1]">
       {/* Navbar */}
       <Navbar />
 

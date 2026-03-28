@@ -9,7 +9,6 @@ import AddDonation from "./pages/AddDonation";
 import ContactUs from "./pages/ContactUs";
 import OurVision from "./pages/OurVision";
 import NgoMap from "./pages/NgoMap";
-import { onAuthStateChanged } from "firebase/auth";
 
 
 function AppContent() {

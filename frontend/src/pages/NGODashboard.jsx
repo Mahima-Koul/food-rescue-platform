@@ -22,25 +22,31 @@ export default function NGODashboard() {
     <div className="min-h-screen bg-[#f4f6f3]">
 
       {/* Navbar */}
-      <nav className="bg-white border-b shadow-sm px-6 py-3 flex justify-between items-center">
+      <nav className="bg-[#ccbeb1] shadow-sm px-6 py-3 flex justify-between items-center">
         <h1 className="font-bold text-lg">🤝 NGO Dashboard</h1>
         <div className="text-sm text-gray-500">Welcome NGO</div>
    
       </nav>
 
       <main className="max-w-7xl mx-auto p-6">
-        <button
-  onClick={() => window.location.href = "/ngo-map"}
-  className="bg-black text-white px-3 py-1 rounded"
->
-  View Map
-</button>
+        <div className="mb-6 flex justify-between items-center">
 
-        {/* Header */}
-        <div className="mb-6">
-          <h2 className="text-2xl font-bold">Available Donations</h2>
-          <p className="text-gray-500 text-sm">Accept food from nearby restaurants</p>
-        </div>
+  {/* LEFT: Header */}
+  <div>
+    <h2 className="text-2xl font-bold">Available Donations</h2>
+    <p className="text-gray-500 text-sm">
+      Accept food from nearby restaurants
+    </p>
+  </div>
+
+  {/* RIGHT: Button */}
+  <button
+    onClick={() => window.location.href = "/ngo-map"}
+    className="bg-[#8B735C] text-white px-4 py-2 rounded-lg hover:bg-[#5C4A3D] hover:-translate-y-0.5 transition-all duration-200">
+    View Map
+  </button>
+
+</div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
@@ -61,46 +67,49 @@ export default function NGODashboard() {
         </div>
 
         {/* Donations List */}
-        <div className="bg-white rounded-xl shadow divide-y">
-          {data.map((item) => (
-            <div key={item.id} className="p-4 flex justify-between items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-              <div>
-                <h3 className="font-semibold">{item.name}</h3>
-                <p className="text-sm text-gray-500">
-                  {item.qty} • {item.restaurant}
-                </p>
-                <p className="text-xs text-amber-500">
-                  Expires: {item.expires}
-                </p>
-              </div>
+  {/* LEFT: Donations List */}
+  <div className="lg:col-span-2 bg-white rounded-xl shadow divide-y">
+    {data.map((item) => (
+      <div key={item.id} className="p-4 flex justify-between items-center">
 
-              <button
-                disabled={item.status === "claimed"}
-                onClick={() => handleAccept(item.id)}
-                className={`px-4 py-2 rounded text-white text-sm ${
-                  item.status === "claimed"
-                    ? "bg-gray-400"
-                    : "bg-green-600 hover:bg-green-700"
-                }`}
-              >
-                {item.status === "claimed" ? "Accepted" : "Accept"}
-              </button>
-
-            </div>
-          ))}
+        <div>
+          <h3 className="font-semibold">{item.name}</h3>
+          <p className="text-sm text-gray-500">
+            {item.qty} • {item.restaurant}
+          </p>
+          <p className="text-xs text-amber-500">
+            Expires: {item.expires}
+          </p>
         </div>
 
-        {/* Pickup Section */}
-        <div className="mt-8 bg-white p-5 rounded-xl shadow">
-          <h3 className="font-bold mb-3">📅 Upcoming Pickups</h3>
+        <button
+          disabled={item.status === "claimed"}
+          onClick={() => handleAccept(item.id)}
+          className={`px-4 py-2 rounded text-sm transition ${
+            item.status === "claimed"
+              ? "bg-[#D8CFC4] text-[#5C4A3D]"
+              : "bg-[#5C4A3D] text-white hover:bg-[#3E3228]"
+          }`}
+        >
+          {item.status === "claimed" ? "Accepted" : "Accept"}
+        </button>
 
-          <div className="space-y-2 text-sm text-gray-600">
-            <p>🕖 7:30 PM - Spice Paradise</p>
-            <p>🕘 9:00 PM - Food Hub</p>
+      </div>
+    ))}
+  </div>
+
+  {/* RIGHT: Upcoming Pickups */}
+  <div className="bg-white p-5 rounded-xl shadow h-fit">
+    <h3 className="font-bold mb-3">📅 Upcoming Pickups</h3>
+
+    <div className="space-y-2 text-sm text-gray-600">
+      <p>🕖 7:30 PM - Spice Paradise</p>
+      <p>🕘 9:00 PM - Food Hub</p>
           </div>
         </div>
-
+      </div>
       </main>
     </div>
   );
