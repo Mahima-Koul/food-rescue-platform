@@ -9,57 +9,59 @@ function Home() {
 
       <Navbar />
 
-      {/* Hero Section with background */}
+      {/* Hero Section */}
       <div
         className="min-h-screen bg-cover bg-center flex flex-col items-center justify-center text-center px-6"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+            linear-gradient(rgba(20,15,10,0.75), rgba(20,15,10,0.75)),
             url(${bg})
           `,
         }}
       >
-        <h2 className="text-5xl font-extrabold mb-6 text-white leading-tight">
-          Save Food. <span className="text-[#ffdbbb]">Serve People.</span>
+        <h2 className="text-5xl font-extrabold mb-6 text-white leading-tight drop-shadow-lg tracking-tight">
+          Save Food. <span className="text-[#ffd6a5]">Serve People.</span>
         </h2>
 
-        <p className="text-white mb-10 text-lg max-w-2xl">
+        <p className="text-[#f3f3f3] mb-10 text-lg max-w-2xl drop-shadow">
           Connecting restaurants with NGOs to reduce food waste and fight hunger in real time.
         </p>
 
         <Link
           to="/signup"
-          className="bg-[#665344] text-white px-10 py-4 rounded-xl text-lg font-semibold hover:bg-[#664930] transition shadow-lg"
+          className="bg-[#8b6f5a] text-white px-10 py-4 rounded-xl text-lg font-semibold hover:bg-[#6f5646] transition shadow-xl backdrop-blur-sm"
         >
-          Get Started 🚀
+          Get Started 
         </Link>
       </div>
 
       {/* How it Works */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-8 py-16 max-w-6xl mx-auto">
-        <div className="bg-[#e0d9c7] p-8 rounded-2xl shadow hover:shadow-lg transition">
+        
+        <div className="bg-[#f5efe6] p-8 rounded-2xl shadow hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
           <div className="text-3xl mb-3">🍽️</div>
-          <h3 className="font-bold text-xl mb-2 font-[Georgia]">Post Food</h3>
+          <h3 className="font-bold text-xl mb-2 font-[Georgia] text-[#3e2f25]">Post Food</h3>
           <p className="text-gray-600">
             Restaurants list surplus food in seconds
           </p>
         </div>
 
-        <div className="bg-[#e0d9c7] p-8 rounded-2xl shadow hover:shadow-lg transition">
+        <div className="bg-[#f5efe6] p-8 rounded-2xl shadow hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
           <div className="text-3xl mb-3">🤝</div>
-          <h3 className="font-bold text-xl mb-2 font-[Georgia]">NGO Accepts</h3>
+          <h3 className="font-bold text-xl mb-2 font-[Georgia] text-[#3e2f25]">NGO Accepts</h3>
           <p className="text-gray-600">
             Nearby NGOs get notified instantly
           </p>
         </div>
 
-        <div className="bg-[#e0d9c7] p-8 rounded-2xl shadow hover:shadow-lg transition">
+        <div className="bg-[#f5efe6] p-8 rounded-2xl shadow hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
           <div className="text-3xl mb-3">🚚</div>
-          <h3 className="font-bold text-xl mb-2 font-[Georgia]">Deliver</h3>
+          <h3 className="font-bold text-xl mb-2 font-[Georgia] text-[#3e2f25]">Deliver</h3>
           <p className="text-gray-600">
             Food reaches those in need quickly
           </p>
         </div>
+
       </div>
 
       {/* Impact Section */}
@@ -67,13 +69,15 @@ function Home() {
         <h3 className="text-3xl font-bold mb-6 text-gray-800">Our Impact</h3>
 
         <div className="flex flex-col md:flex-row justify-center gap-10 text-lg">
-          <div className="bg-[#e0d9d3] px-8 py-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          
+          <div className="bg-[#f0e7dc] px-8 py-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             🍽️ <span className="font-bold">1200+ meals saved</span>
           </div>
 
-          <div className="bg-[#e0d9d3] px-8 py-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div className="bg-[#f0e7dc] px-8 py-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             🌍 <span className="font-bold">Reducing food waste daily</span>
           </div>
+
         </div>
       </div>
 

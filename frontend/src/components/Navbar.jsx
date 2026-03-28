@@ -35,9 +35,9 @@ function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
-          <img src="/image.png" alt="logo" className="w-10 h-10 rounded-full object-cover" />
-          <span className="text-xl font-semibold text-[#2a221c] font-[Adler]">
-            ResQmeal
+          <img src="/image.png" alt="logo" className="w-35 h-12 rounded-full object-cover" />
+          <span className="text-xl font-semibold text-[#2a221c] font-[Poppins] ">
+            
           </span>
         </Link>
 
