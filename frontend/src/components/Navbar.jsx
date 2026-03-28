@@ -5,15 +5,17 @@ import { signOut } from "firebase/auth";
 
 function Navbar() {
   const user = auth.currentUser;
+  const role = localStorage.getItem("role"); // ✅ role
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef();
 
   const handleLogout = async () => {
     await signOut(auth);
+    localStorage.removeItem("role"); // ✅ clear role
     setOpen(false);
+    window.location.href = "/";
   };
 
-  // 🔥 Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -43,7 +45,6 @@ function Navbar() {
         <div className="relative">
 
           {!user ? (
-            // 🔐 NOT LOGGED IN
             <Link
               to="/login"
               className="bg-[#664930] hover:bg-[#4a3520] text-white px-4 py-2 rounded-lg text-sm font-semibold transition"
@@ -51,15 +52,14 @@ function Navbar() {
               Login / Signup
             </Link>
           ) : (
-            // 👤 LOGGED IN
             <div ref={dropdownRef} className="relative">
 
-              {/* Avatar Button */}
+              {/* Avatar */}
               <button
                 onClick={() => setOpen(!open)}
                 className="w-10 h-10 rounded-full bg-[#664930] text-white flex items-center justify-center font-bold hover:bg-[#4a3424] hover:scale-105 transition duration-200 shadow cursor-pointer"
               >
-                {user.email?.[0].toUpperCase()}
+                {role === "restaurant" ? "R" : "N"}
               </button>
 
               {/* Dropdown */}
@@ -74,41 +74,63 @@ function Navbar() {
                   {user.email}
                 </p>
 
-                <Link
-                  to="/profile"
-                  className="block px-4 py-2 text-sm hover:bg-gray-50 cursor-pointer"
-                  onClick={() => setOpen(false)}
-                >
-                  Account
-                </Link>
+                {/* Profile */}
+                {role === "ngo" && (
+                  <Link
+                    to="/ngo-profile"
+                    className="block px-4 py-2 text-sm hover:bg-gray-50"
+                    onClick={() => setOpen(false)}
+                  >
+                    Profile
+                  </Link>
+                )}
 
-                <Link
-                  to="/add-donation"
-                  className="block px-4 py-2 text-sm hover:bg-gray-50 cursor-pointer"
-                  onClick={() => setOpen(false)}
-                >
-                  Add Listing
-                </Link>
+                {role === "restaurant" && (
+                  <Link
+                    to="/restaurant-profile"
+                    className="block px-4 py-2 text-sm hover:bg-gray-50"
+                    onClick={() => setOpen(false)}
+                  >
+                    Profile
+                  </Link>
+                )}
 
-                <Link
-                  to="/restaurant-dashboard"
-                  className="block px-4 py-2 text-sm hover:bg-gray-50 cursor-pointer"
-                  onClick={() => setOpen(false)}
-                >
-                  Restaurant Dashboard
-                </Link>
+                {/* Add Listing (only restaurant) */}
+                {role === "restaurant" && (
+                  <Link
+                    to="/add-donation"
+                    className="block px-4 py-2 text-sm hover:bg-gray-50"
+                    onClick={() => setOpen(false)}
+                  >
+                    Add Listing
+                  </Link>
+                )}
 
-                <Link
-                  to="/ngo-dashboard"
-                  className="block px-4 py-2 text-sm hover:bg-gray-50 cursor-pointer"
-                  onClick={() => setOpen(false)}
-                >
-                  NGO Dashboard
-                </Link>
+                {/* Dashboards */}
+                {role === "restaurant" && (
+                  <Link
+                    to="/restaurant-dashboard"
+                    className="block px-4 py-2 text-sm hover:bg-gray-50"
+                    onClick={() => setOpen(false)}
+                  >
+                    Restaurant Dashboard
+                  </Link>
+                )}
 
+                {role === "ngo" && (
+                  <Link
+                    to="/ngo-dashboard"
+                    className="block px-4 py-2 text-sm hover:bg-gray-50"
+                    onClick={() => setOpen(false)}
+                  >
+                    NGO Dashboard
+                  </Link>
+                )}
+
+                {/* Logout */}
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-gray-50 cursor-pointer"
+                  className="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-gray-50"
                 >
                   Logout
                 </button>
