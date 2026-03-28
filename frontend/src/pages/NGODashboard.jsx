@@ -183,10 +183,10 @@ export default function NGODashboard() {
   </div>
 
   {/* Impact */}
-  <div className="bg-[#EDE7E1] p-5 rounded-2xl shadow-sm text-center">
+  <div className="bg-gradient-to-br from-[#8B735C] to-[#5C4A3D] rounded-2xl p-5 text-white">
     <h3 className="font-bold mb-2">🌍 Impact</h3>
-    <p className="text-sm text-gray-500">You helped save</p>
-    <p className="text-xl font-bold text-[#664930]">120 meals</p>
+    <p className="text-sm text-white">You helped save</p>
+    <p className="text-xl font-bold text-white">120 meals</p>
   </div>
 
 </div>
