@@ -66,16 +66,17 @@ function Home() {
 
       {/* Impact Section */}
       <div className="text-center py-14 bg-white border-t">
-        <h3 className="text-3xl font-bold mb-6 text-gray-800">Our Impact</h3>
-
+        <h2 className="font-bold text-xl mb-2 font-[Georgia] text-[#3e2f25]">Our Impact</h2>
+        
         <div className="flex flex-col md:flex-row justify-center gap-10 text-lg">
           
           <div className="bg-[#f0e7dc] px-8 py-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            🍽️ <span className="font-bold">1200+ meals saved</span>
+
+            🍽️ <span className="font-[Georgia] text-[#3e2f25] font-">1200+ meals saved</span>
           </div>
 
           <div className="bg-[#f0e7dc] px-8 py-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-            🌍 <span className="font-bold">Reducing food waste daily</span>
+            🌍 <span className=" font-[Georgia] text-[#3e2f25] font-">Reducing food waste daily</span>
           </div>
 
         </div>
