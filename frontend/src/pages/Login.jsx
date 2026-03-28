@@ -13,6 +13,7 @@ function Login() {
 
   try {
     setError("");
+
     const userCredential = await signInWithEmailAndPassword(
       auth,
       email,
@@ -25,22 +26,36 @@ function Login() {
 
     console.log("Login success", token);
 
+    // ✅ ROLE DETECTION
+    let role = "restaurant";
+
+    if (email.toLowerCase().includes("ngo")) {
+      role = "ngo";
+    }
+
+    // ✅ STORE ROLE
+    localStorage.setItem("role", role);
+
     alert("Login successful 🚀");
 
-    // 👉 redirect (important)
-    window.location.href = "/restaurant-dashboard";
+    // ✅ REDIRECT BASED ON ROLE
+    if (role === "ngo") {
+      window.location.href = "/ngo-dashboard";
+    } else {
+      window.location.href = "/restaurant-dashboard";
+    }
 
-  }catch (error) {
-  console.log(error);
-  setError(error.message);
-}
+  } catch (error) {
+    console.log(error);
+    setError(error.message);
+  }
 };
 
   return (
     <div className="h-screen flex justify-center items-center bg-gray-100">
       <div className="bg-white p-8 rounded-xl shadow-md w-80 text-center">
         
-        <h2 className="mb-5 text-[#664930] text-2xl font-bold">Login</h2>
+        <h2 className="mb-5 text-green-600 text-2xl font-bold">Login</h2>
 
         <form onSubmit={handleLogin} noValidate>
           <input
@@ -65,7 +80,7 @@ function Login() {
 
           <button
             type="submit"
-            className="w-full p-2 bg-[#664930] text-white rounded-lg font-semibold hover:bg-[#4a3520]"
+            className="w-full p-2 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600"
           >
             Login
           </button>
@@ -74,7 +89,7 @@ function Login() {
             New user?{" "}
             <Link 
                 to="/signup" 
-                className="text-[#664930] font-semibold hover:underline">
+                className="text-green-600 font-semibold hover:underline">
                 Sign up here
             </Link>
           </p>  
