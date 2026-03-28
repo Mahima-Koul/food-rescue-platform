@@ -31,15 +31,10 @@ export default function RestaurantDashboard() {
           ResQMeal
         </p>
         <p className="text-[11px] text-gray-700 uppercase tracking-wide">
-          NGO Portal
+          Restaurant Portal
         </p>
       </div>
     </Link>
-
-    {/* Right */}
-    <div className="text-sm text-gray-600 font-medium">
-      Welcome NGO
-    </div>
 
   </div>
 </nav>
